@@ -275,3 +275,90 @@ STEP 4:
           |                |
           +----------------+
 
+
+--- subtraction of binary numbers ----
+
+        1 1 0 1
+      - 0 1 0 1
+      ---------
+        1 0 0 0
+      ---------
+
+           -1 10 
+        1 1 1 0    Borrow from the left
+      - 0 1 0 1
+      ---------
+        1 0 0 1
+
+
+Original:
+        1 0 1 0
+     -  0 1 1 1
+      ---------
+
+Step 1: (looking 1st column from right)
+Borrow from the left
+           -1 10
+        1 0 1 0
+     -  0 1 1 1
+      ---------
+              1
+
+Step 2: (looking 2nd column from right)
+           -1 10
+        1 0 1 0
+     -  0 1 1 1
+      ---------
+              1
+            ^
+            +-------------------- -1 + 1 - 1 = -1 (need to borrow again)
+
+Step 3: (looking 2nd column from right)
+          +---------------------borrow from column 3 will give -1
+          | +------------------------need to add 10, coz borrowed from
+          V V                         column 3
+           +10                        
+         -1-1 10
+        1 0 1 0
+     -  0 1 1 1
+      ---------
+            1 1
+            ^
+            +-------------------- 2 -1 + 1 -1 = 1
+
+
+
+Step 4: (looking 3rd column from right)
+
+           +10                        
+         -1-1 10
+        1 0 1 0
+     -  0 1 1 1
+      ---------
+            1 1
+          ^
+          +-------------------- -1 + 0 -1 = -2 (need to borrow again)
+
+
+Step 4: (looking 3rd column from right)
+
+        +10 +10                        
+       -1-1-1 10
+        1 0 1 0
+     -  0 1 1 1
+      ---------
+          0 1 1
+          ^
+          +-------------------- +2 -1 + 0 -1 = 0
+
+Step 5: (completing the answer)
+
+        +10 +10                        
+       -1-1-1 10
+        1 0 1 0              double check (10)  (10 - 7 = 3)
+     -  0 1 1 1              double check ( 7)
+      ---------
+        0 0 1 1              (answer is 3, correct)
+        ^
+        +-------------------- -1 + 1 - 0 = 0
+
